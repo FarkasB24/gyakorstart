@@ -1,0 +1,268 @@
+<!doctype html>
+<html lang="hu">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="api-base-url" content="/api" />
+    <meta name="api-mode" content="prototype" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Céges nézet – GyakorStart</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body class="dashboard-body" data-profile-role="company">
+    <header class="site-header">
+      <a class="brand" href="index.html"><span class="brand-mark">G</span><span>gyakor<span>start</span></span></a>
+      <nav class="nav">
+        <a href="jobs.html">Állások</a>
+        <a class="nav-active" href="ceges-profil.html">Céges nézet</a>
+      </nav>
+      <div class="auth-actions">
+        <a class="button button-ghost" href="index.html" data-logout>Kijelentkezés</a>
+        <button class="button button-primary" id="open-posting">+ Új hirdetés</button>
+      </div>
+    </header>
+
+    <main class="company-page">
+      <section class="company-welcome">
+        <div>
+          <span class="eyebrow"><i></i> Céges profil</span>
+          <h1 id="company-greeting">Jó reggelt, Rába IT!</h1><p>Válassz egy meghirdetett állást, hogy megtekintsd a hozzá tartozó statisztikákat és jelentkezőket.</p>
+        </div>
+        <div class="company-welcome-actions"><button class="button button-light" id="open-company-details" type="button">Cégadatok kezelése</button><button class="button button-dark" id="open-posting-secondary">+ Új állás feladása</button></div>
+      </section>
+
+      <section class="company-jobs-section" aria-labelledby="company-jobs-title">
+        <div class="company-section-title">
+          <div>
+            <span class="eyebrow"><i></i> 1. lépés</span>
+            <h2 id="company-jobs-title">Meghirdetett állások</h2><p class="section-help">Válassz egy állást a jelentkezők és a kiválasztási folyamat megtekintéséhez.</p>
+          </div>
+        </div>
+        <div class="company-job-picker">
+          <button class="company-job-option active" data-company-job="rendszergazda"><span class="job-logo logo-mint">IT</span><span class="company-job-copy"><strong>Rendszergazda gyakornok</strong><small>Győr · 4 jelentkező</small></span><span class="selection-mark">✓</span></button>
+          <button class="company-job-option" data-company-job="frontend"><span class="job-logo logo-blue">&lt;/&gt;</span><span class="company-job-copy"><strong>Frontend fejlesztő gyakornok</strong><small>Budapest · 8 jelentkező</small></span><span class="selection-mark">✓</span></button>
+          <button class="company-job-option" data-company-job="it-support"><span class="job-logo logo-lilac">HD</span><span class="company-job-copy"><strong>IT support gyakornok</strong><small>Győr · 3 jelentkező</small></span><span class="selection-mark">✓</span></button>
+        </div>
+        <div class="company-empty-state" id="company-jobs-empty" hidden>
+          <span class="empty-state-icon" aria-hidden="true">＋</span>
+          <h3>Még nincsenek feladott hirdetéseid</h3>
+          <p>Hozd létre az első gyakornoki pozíciódat, hogy a hallgatók jelentkezhessenek rá.</p>
+          <button class="button button-primary" id="company-empty-posting" type="button">Első hirdetés feladása</button>
+        </div>
+      </section>
+
+      <section class="selected-job-area" id="selected-job-area">
+        <div class="company-section-title">
+          <div>
+            <span class="eyebrow"><i></i> 2. lépés</span>
+            <h2 id="selected-job-heading">Rendszergazda gyakornok</h2>
+          </div>
+          <span class="selected-pill">Kiválasztott állás</span>
+        </div>
+        
+        <section class="company-stats">
+          <article><span>Összes jelentkező</span><strong id="stat-total">4</strong></article>
+          <article><span>Új jelentkező</span><strong class="green-number" id="stat-new">1</strong></article>
+          <article><span>Interjúra hívott</span><strong id="stat-interview">1</strong></article>
+          <article><span>Lezárt jelentkezés</span><strong id="stat-rejected">1</strong></article>
+        </section>
+
+        <section class="posting-summary">
+          <div class="job-logo logo-mint" id="selected-job-logo">IT</div>
+          <div>
+            <span class="listing-label">Aktív hirdetés</span>
+            <h2 id="selected-job-title">Rendszergazda gyakornok</h2>
+            <p id="selected-job-meta">Győr · legalább 5. félév · angol B2</p>
+          </div>
+          <a class="button button-light" id="selected-job-link" href="job.html?id=rendszergazda">Hirdetés megtekintése ↗</a>
+        </section>
+
+        <section class="job-management-panel" id="job-management-panel" hidden aria-label="Hirdetés kezelése">
+          <div class="job-management-heading">
+            <div>
+              <span class="eyebrow"><i></i> Hirdetés kezelése</span>
+              <h3 id="job-management-status">Aktív hirdetés</h3>
+              <p id="job-management-description">A közzétett hirdetés feltételei nem módosíthatók.</p>
+            </div>
+          </div>
+          <div class="job-management-actions" id="job-management-actions"></div>
+          <p class="job-management-feedback" id="job-management-feedback" role="status" aria-live="polite" hidden></p>
+        </section>
+
+        <section class="applicants-section">
+          <div class="applicants-heading">
+            <div>
+              <span class="eyebrow"><i></i> Beérkezett jelentkezések</span>
+              <h2>Jelentkezők</h2>
+            </div>
+            <div class="candidate-tabs" role="group" aria-label="Jelentkezők státusz szerinti szűrése">
+              <button class="active" type="button" aria-pressed="true" data-candidate-status="new">Új jelentkezők <span id="status-count-new">0</span></button>
+              <button type="button" aria-pressed="false" data-candidate-status="interview">Interjúra hívottak <span id="status-count-interview">0</span></button>
+              <button type="button" aria-pressed="false" data-candidate-status="rejected">Lezárt jelentkezések <span id="status-count-rejected">0</span></button>
+            </div>
+          </div>
+          <p class="candidate-feedback" id="candidate-feedback" role="status" aria-live="polite" hidden></p>
+          <div class="candidate-list" id="candidate-list" aria-live="polite"></div>
+        </section>
+      </section>
+    </main>
+
+    <dialog class="candidate-profile-dialog" id="candidate-profile-dialog" aria-labelledby="candidate-profile-title">
+      <button class="dialog-close" id="candidate-profile-close" type="button" aria-label="Profilablak bezárása">×</button>
+      <div id="candidate-profile-content"></div>
+    </dialog>
+
+    <dialog class="candidate-match-dialog" id="candidate-match-dialog" aria-labelledby="candidate-match-title">
+      <button class="dialog-close" id="candidate-match-close" type="button" aria-label="Egyezés részleteinek bezárása">×</button>
+      <div id="candidate-match-content"></div>
+    </dialog>
+
+    <dialog class="posting-dialog" id="company-details-dialog" aria-labelledby="company-details-title">
+      <button class="dialog-close" id="company-details-close" type="button" aria-label="Bezárás">×</button>
+      <div class="posting-form-view">
+        <span class="modal-kicker">Céges adatok</span>
+        <h2 id="company-details-title">A vállalkozás adatai</h2>
+        <p>Az adatok megadása szükséges az álláshirdetések közzétételéhez. A kapcsolattartási adatok nem jelennek meg automatikusan nyilvánosan.</p>
+        <form id="company-details-form">
+          <div class="form-grid">
+            <label>Hivatalos cégnév<input name="companyName" required maxlength="180" /></label>
+            <label>Adószám<input name="taxNumber" required inputmode="numeric" pattern="[0-9]{8}-[0-9]-[0-9]{2}" placeholder="12345678-2-08" title="Formátum: 12345678-2-08" /></label>
+            <label>Cégjegyzékszám <small>(ha van)</small><input name="companyRegistrationNumber" placeholder="08-09-123456" /></label>
+            <label>Kapcsolattartó neve<input name="contactName" required /></label>
+            <label>Kapcsolattartó telefonszáma<input name="phone" type="tel" required placeholder="+36 30 123 4567" /></label>
+            <label>Székhely irányítószáma<input name="postalCode" required inputmode="numeric" pattern="[0-9]{4}" /></label>
+            <label>Székhely települése<input name="city" required /></label>
+            <label>Közterület neve és jellege<input name="street" required /></label>
+            <label>Házszám<input name="houseNumber" required /></label>
+            <label>Weboldal <small>(nem kötelező)</small><input name="website" type="url" placeholder="https://pelda.hu" /></label>
+          </div>
+          <p class="form-message" id="company-details-message" role="status"></p>
+          <button class="button button-primary" type="submit">Cégadatok mentése</button>
+        </form>
+      </div>
+    </dialog>
+
+    <dialog class="posting-dialog" id="posting-dialog">
+      <button class="dialog-close" id="posting-close" aria-label="Bezárás">×</button>
+      <div id="posting-form-view">
+        <span class="modal-kicker">Új hirdetés</span>
+        <h2>Add meg a kiválasztás feltételeit</h2><p>A megadott feltételek segítenek megtalálni a pozícióhoz illő jelentkezőket.</p>
+        
+        <form id="posting-form">
+          <div class="posting-description-fields posting-company-intro-first" style="display: grid; gap: 15px; margin: 0 0 18px;">
+            <label for="post-company-description">A cég bemutatkozása
+              <textarea id="post-company-description" name="companyDescription" rows="3" maxlength="2000" placeholder="Mutasd be röviden a céget, a tevékenységét és a csapatot, amelyhez a gyakornok csatlakozik."></textarea>
+              <small class="field-help">A bemutatkozás az álláshirdetés elején, a szakmai információk előtt jelenik meg.</small>
+            </label>
+          </div>
+          <div class="form-grid">
+
+            <label class="post-field-position">Pozíció neve
+              <input id="post-position-title" name="positionTitle" required maxlength="100" placeholder="pl. Rendszergazda gyakornok" />
+            </label>
+            
+            <label class="post-field-location">Helyszín
+              <input id="post-location" name="location" required maxlength="100" placeholder="pl. Győr" />
+            </label>
+
+            <label class="post-field-expiry">Jelentkezési határidő
+              <input id="post-expires-on" name="expiresOn" type="date" required />
+              <small>A jelentkezés a kiválasztott nap végén, 23:59-kor automatikusan lezárul.</small>
+            </label>
+
+            <label class="post-field-semester" for="post-min-semester">Minimum félév
+              <select id="post-min-semester" name="minimumSemester" required>
+                <option value="">Válassz minimum félévet…</option>
+              </select>
+              <small>Ugyanazok a félévek választhatók, mint a hallgatói profilban.</small>
+            </label>
+
+            <fieldset class="posting-program-section post-field-programs">
+              <legend>Elfogadott szakok</legend><p class="posting-program-intro">Válaszd ki az elfogadott képzéseket.</p>
+              <div class="post-program-list" id="post-program-list" aria-live="polite"></div>
+              <div class="post-program-add-row" id="post-program-add-row">
+                <label for="post-program-to-add">Szak hozzáadása<select id="post-program-to-add"><option value="">Válassz szakot…</option></select></label>
+                <label class="post-program-custom-wrap" id="post-program-custom-wrap" for="post-program-custom-name" hidden>Egyéb szak neve<input id="post-program-custom-name" placeholder="pl. Szociológia" /></label>
+                <button class="button button-light" id="add-post-program" type="button">+ Szak hozzáadása</button>
+              </div>
+              <p class="post-program-empty" id="post-program-empty">Minden szak elfogadott.</p>
+            </fieldset>
+
+            <label class="post-field-mode">Munkavégzés módja
+              <select id="post-work-mode" name="workMode" required>
+                <option value="">Válassz…</option>
+                <option>Irodai</option>
+                <option>Hibrid</option>
+                <option>Távoli</option>
+              </select>
+            </label>
+
+            <fieldset class="posting-language-section">
+              <legend>Elvárt nyelvtudás</legend><p class="posting-language-intro">Nyelvenként megadhatod a minimum beszédkészségi szintet, hogy az adott nyelv kötelező feltétel-e vagy előny, valamint a nyelvvizsga-elvárást.</p>
+              <div class="post-language-list" id="post-language-list" aria-live="polite"></div>
+              <div class="post-language-add-row" id="post-language-add-row">
+                <label for="post-language-to-add">Nyelv hozzáadása
+                  <select id="post-language-to-add"><option value="">Válassz nyelvet…</option></select>
+                </label>
+                <button class="button button-light" id="add-post-language" type="button">+ Nyelv hozzáadása</button>
+              </div>
+              <p class="post-language-empty" id="post-language-empty">Nincs nyelvi elvárás megadva. A nyelvtudás nem feltétel.</p><p class="field-help">A hallgatói profillal közös, ellenőrzött nyelvlistából választhatsz. A „Nyelvi előny” nem kizáró feltétel. Nyelvvizsgát külön is előírhatsz.</p>
+              <label class="post-language-relation-label" for="post-language-relation">Hogyan viszonyuljanak egymáshoz a kötelező nyelvek?
+                <select id="post-language-relation"><option value="all">Minden kötelező nyelv szükséges</option><option value="any">Elegendő egy kötelező nyelv ismerete</option></select>
+              </label>
+            </fieldset>
+
+            <fieldset class="weekly-hours-field post-field-hours">
+              <legend>Heti óraszám elvárás</legend>
+              <div class="hours-range">
+                <label for="post-hours-min"><span>Minimum óraszám</span>
+                  <input id="post-hours-min" type="number" min="5" max="40" placeholder="20" required style="border: 0; padding: 10px 3px; text-align: center; box-shadow: none;" />
+                </label>
+                <span class="hours-separator" aria-hidden="true">–</span>
+                <label for="post-hours-max"><span>Maximum óraszám</span>
+                  <input id="post-hours-max" type="number" min="5" max="40" placeholder="30" required style="border: 0; padding: 10px 3px; text-align: center; box-shadow: none;" />
+                </label>
+                <span>óra</span>
+              </div>
+            </fieldset>
+
+            <label class="post-field-rate">Bruttó órabér <small style="text-transform: none; letter-spacing: 0; color: var(--muted); font-weight: 500;">(Opcionális)</small>
+              <input id="post-hourly-rate" name="hourlyRate" maxlength="50" placeholder="pl. 2 600 Ft / óra" />
+            </label>
+          </div>
+
+          <div class="posting-description-fields" style="display: grid; gap: 15px; margin-top: 15px;">
+            <label for="post-tasks">A gyakornok feladatai
+              <textarea id="post-tasks" name="tasks" rows="3" maxlength="2000" required placeholder="pl. Rendszerek karbantartása, felhasználói hibajegyek kezelése mentor segítségével..."></textarea>
+            </label>
+
+            <label for="post-requirements">Szakmai elvárások és előnyök
+              <textarea id="post-requirements" name="requirements" rows="3" maxlength="2000" required placeholder="pl. Windows/Linux alapismeretek, jó kommunikációs készség..."></textarea>
+            </label>
+          </div>
+
+          <p class="posting-api-error" id="posting-api-error" role="alert" hidden></p>
+          <div class="posting-form-actions">
+            <button class="button button-light" id="save-posting-draft" type="button">Piszkozat mentése</button>
+            <button class="button button-primary submit-button" type="submit">Közzététel →</button>
+          </div>
+        </form>
+      </div>
+      <div class="application-success" id="posting-success" hidden>
+        <span>✓</span>
+        <h2 id="posting-success-title">A hirdetés közzétéve</h2>
+        <p id="posting-success-copy">A hirdetés megjelent az álláskeresőben, és a megadott határidőig fogad jelentkezéseket.</p>
+        <p class="posting-success-language" id="posting-success-overview"></p>
+        <p class="posting-success-language" id="posting-success-programs"></p>
+        <p class="posting-success-language" id="posting-success-language"></p>
+        <button class="button button-dark" id="posting-done">Rendben</button>
+      </div>
+    </dialog>
+
+    <script src="shared-data.js"></script>
+    <script src="profile-session.js"></script>
+    <script src="company.js"></script>
+  </body>
+</html>

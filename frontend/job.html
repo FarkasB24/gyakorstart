@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="hu">
+  <head><meta charset="UTF-8" /><meta name="api-base-url" content="/api" /><meta name="viewport" content="width=device-width, initial-scale=1.0" /><title>Állás részletei – GyakorStart</title><link rel="preconnect" href="https://fonts.googleapis.com" /><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin /><link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@700;800&display=swap" rel="stylesheet" /><link rel="stylesheet" href="styles.css" /></head>
+  <body class="page-surface">
+    <header class="site-header"><a class="brand" href="index.html"><span class="brand-mark">G</span><span>gyakor<span>start</span></span></a><nav class="nav"><a class="nav-active" href="jobs.html">Állások</a></nav><div class="auth-actions"><a class="button button-ghost" href="jobs.html">← Vissza</a><a class="button button-dark" href="index.html">Főoldal</a></div></header>
+    <main class="detail-page">
+      <a class="back-link" href="jobs.html">← Vissza az állásokhoz</a>
+      <section class="detail-hero">
+        <div class="detail-main">
+          <div class="job-logo logo-mint detail-logo" id="detail-logo">IT</div>
+          <span class="listing-label" id="detail-posting-label">Gyakornoki lehetőség</span>
+          <h1 id="detail-title">Rendszergazda gyakornok</h1>
+          <p class="detail-company" id="detail-company">Rába IT Services Kft.</p>
+          <div class="detail-chips">
+            <span id="detail-location">⌖ Győr</span>
+            <span id="detail-mode">◐ Hibrid</span>
+            <span id="detail-hours">◷ Heti 20–30 óra</span>
+          </div>
+          <div class="detail-deadline-banner" id="detail-deadline-banner" role="status">
+            <span class="detail-deadline-icon" aria-hidden="true">◷</span>
+            <div><strong id="detail-deadline-title">Jelentkezési határidő</strong><p id="detail-deadline-text">Nincs megadva.</p></div>
+          </div>
+        </div>
+        <aside class="apply-panel">
+          <span>Gyakornoki díjazás</span>
+          <strong id="detail-pay">2 600 Ft / óra</strong>
+          <p id="detail-application-status">A jelentkezés előtt ellenőrizd az alapfeltételeket és a jelentkezési határidőt.</p>
+          <button class="button button-primary" id="open-application">Jelentkezem erre az állásra →</button>
+        </aside>
+      </section>
+      <div class="detail-layout">
+        <div class="detail-content">
+          <section class="content-card company-description-first" id="detail-company-description-section"><span class="card-number">01</span><h2>A cégről</h2><div class="detail-long-text" id="detail-company-description"></div></section>
+          <section class="content-card"><span class="card-number">02</span><h2>Elfogadott szakok</h2><p class="detail-section-intro" id="detail-program-intro" hidden></p><div class="study-list" id="detail-programs"></div></section>
+          <section class="content-card" id="detail-language-section"><span class="card-number">03</span><h2>Elvárt nyelvtudás</h2><p class="detail-section-intro" id="detail-language-intro" hidden></p><div class="detail-language-list" id="detail-language-requirements"></div></section>
+          <section class="content-card"><span class="card-number">04</span><h2>A gyakornok feladatai</h2><div class="detail-long-text" id="detail-tasks"></div></section>
+          <section class="content-card"><span class="card-number">05</span><h2>Szakmai elvárások és előnyök</h2><div class="detail-long-text" id="detail-requirements"></div></section>
+        </div>
+        <aside class="facts-card"><h2>A hirdetés feltételei</h2>
+          <div class="fact-row"><span>Jelentkezési határidő</span><strong id="detail-deadline-fact">Nincs megadva</strong></div>
+          <div class="fact-row"><span>Minimum félév</span><strong id="detail-semester">5. félév</strong></div>
+          <div class="fact-row"><span>Munkavégzés módja</span><strong id="detail-workplace">Hibrid</strong></div>
+          <div class="fact-row"><span>Heti óraszám</span><strong id="detail-hours-fact">Heti 20–30 óra</strong></div>
+          <div class="fact-row"><span>Bruttó órabér</span><strong id="detail-pay-fact">2 600 Ft / óra</strong></div>
+          <section class="student-profile-match" id="student-profile-match" aria-labelledby="student-profile-match-title" hidden>
+            <div class="student-match-heading"><div><span class="student-match-kicker">Személyre szabott illeszkedés</span><h3 id="student-profile-match-title">Profil-egyezés</h3></div><strong id="student-match-percent">–</strong></div>
+            <p class="student-match-description" id="student-match-description"></p>
+            <div class="student-match-progress" id="student-match-progress" role="progressbar" aria-label="Profil-egyezés" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><span id="student-match-progress-fill"></span></div>
+            <ul class="student-match-criteria" id="student-match-criteria"></ul>
+            <p class="student-match-footnote">Az egyezés a megadott profiladatok alapján készült becslés. A munkáltató a jelentkezéseket egyedileg értékeli.</p>
+          </section>
+          <p class="student-match-login-note" id="student-match-login-note" hidden>A profil-egyezés megtekintéséhez jelentkezz be hallgatói fiókkal.</p>
+        </aside>
+      </div>
+    </main>
+    <dialog class="application-dialog" id="application-dialog"><button class="dialog-close" id="application-close" aria-label="Bezárás">×</button><div id="application-form-view"><span class="modal-kicker">Jelentkezés</span><h2 id="application-heading">Rendszergazda gyakornok</h2><p id="application-company">Rába IT Services Kft.</p><form id="application-form"><label for="applicant-name">Teljes neved</label><input id="applicant-name" autocomplete="name" required readonly /><label for="applicant-email">E-mail-címed</label><input id="applicant-email" type="email" autocomplete="email" required readonly /><label for="application-note">Rövid bemutatkozás</label><textarea id="application-note" rows="4" maxlength="1000" required></textarea><p class="application-form-error" id="application-error" role="alert" hidden></p><button class="button button-primary submit-button" type="submit">Jelentkezés elküldése →</button></form></div><div class="application-success" id="application-success" hidden><span>✓</span><h2>Sikeresen jelentkeztél!</h2><p id="application-success-copy">A jelentkezésed sikeresen beérkezett a vállalathoz.</p><button class="button button-dark" id="application-done">Bezárás</button></div></dialog>
+    <script src="shared-data.js"></script>
+    <script src="job-detail.js"></script>
+    <script src="site-session-nav.js"></script>
+  </body>
+</html>

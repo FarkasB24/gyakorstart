@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="hu">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="GyakorStart – ahol az egyetemisták és a gyakornokot kereső cégek egymásra találnak." />
+    <title>GyakorStart – Itt indul a karriered</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="index.html" aria-label="GyakorStart főoldal"><span class="brand-mark">G</span><span>gyakor<span>start</span></span></a>
+      <nav class="nav" aria-label="Fő navigáció"><a href="#hogyan-mukodik">Hogyan működik?</a><a href="#kinek-szol">Kinek szól?</a></nav>
+      <div class="auth-actions" id="auth-actions">
+        <a class="button button-jobs" href="jobs.html">▦ &nbsp; Állások</a>
+        <button class="button button-ghost" data-open-auth="login">Bejelentkezés</button>
+        <button class="button button-dark" data-open-auth="register" data-auth-role="student">Regisztráció</button>
+      </div>
+    </header>
+
+    <main id="top">
+      <section class="hero">
+        <div class="hero-copy">
+          <span class="eyebrow"><i></i> Egy hely. Két oldal. Rengeteg lehetőség.</span>
+          <h1>A tehetség és a lehetőség <em>itt találkozik.</em></h1>
+          <p>Gyakornoki munkát keresel? Vagy a következő tehetséget a csapatodba? Hozz létre egy profilt, adj fel hirdetést, és találjatok egymásra egyszerűen.</p>
+          <div class="hero-actions"><a class="button button-primary" href="jobs.html">Állások böngészése →</a><button class="button button-light" data-open-auth="register" data-auth-role="company">Gyakornokot keresek</button></div>
+          <div class="trust-row"><div class="avatar-stack" aria-hidden="true"><span>AN</span><span>BK</span><span>LM</span></div><p><strong>Közösségre tervezve</strong><br />hallgatóknak, cégeknek és egyetemeknek</p></div>
+        </div>
+        <div class="hero-visual" aria-label="Példa gyakornoki profilok és állások">
+          <div class="orbit orbit-one"></div><div class="orbit orbit-two"></div>
+          <article class="profile-card"><div class="profile-top"><div class="portrait">LP</div><span class="status">Munkát keres</span></div><h2>Lili, 21</h2><p>Gazdaságinformatikus hallgató</p><div class="tags"><span>UX/UI</span><span>Budapest</span></div></article>
+          <article class="job-card"><div class="company-icon">◇</div><div><span class="job-label">CÉGES OLDAL</span><h2>Pontosabb kiválasztás</h2><p>A feltételek alapján kiemelt jelentkezők</p></div><span aria-hidden="true">↗</span></article>
+          <div class="match-badge"><span>✓</span><strong>Egymásra<br />találtatok!</strong></div>
+        </div>
+      </section>
+
+      <section class="how-it-works" id="hogyan-mukodik">
+        <div class="section-heading"><span class="eyebrow"><i></i> Egyszerűen indul</span><h2>Három lépés az első találkozásig.</h2></div>
+        <div class="steps"><article><span>01</span><h3>Mutatkozz be</h3><p>Hozz létre egy profilt, és add meg a szakodat, tapasztalataidat és nyelvtudásodat.</p></article><article><span>02</span><h3>Találj pontos hirdetést</h3><p>Nézd meg a céget, a helyszínt, a jelentkezési feltételeket és az elvárásokat.</p></article><article><span>03</span><h3>Jelentkezz</h3><p>A cég azonnal láthatja, mely feltételeknek felelsz meg.</p></article></div>
+      </section>
+
+      <section class="audiences" id="kinek-szol">
+        <div><span class="eyebrow eyebrow-light"><i></i> Mindenkinek, aki elindít valamit</span><h2>Első tapasztalat.<br />Friss lendület.</h2></div>
+        <div class="audience-list"><article><span>🎓</span><div><h3>Hallgatóknak</h3><p>Találd meg azokat a pozíciókat, amelyek a szakodhoz és tanulmányaidhoz illenek.</p></div></article><article><span>▦</span><div><h3>Cégeknek</h3><p>Adj meg pontos elvárásokat, és emeld ki az ezeknek megfelelő jelentkezőket.</p></div></article><article><span>⌂</span><div><h3>Egyetemeknek</h3><p>Ossz meg ellenőrzött lehetőségeket közvetlenül a hallgatókkal.</p></div></article></div>
+      </section>
+    </main>
+
+    <footer><a class="brand brand-footer" href="index.html"><span class="brand-mark">G</span><span>gyakor<span>start</span></span></a><div class="footer-links"><a href="jobs.html">Állások</a><a href="hallgatoi-profil.html">Hallgatói nézet</a></div><p>© 2026 GyakorStart · Az első lépéshez.</p></footer>
+
+    <dialog class="auth-dialog" id="auth-dialog" aria-labelledby="auth-title">
+      <button class="dialog-close" id="dialog-close" aria-label="Ablak bezárása">×</button><div class="dialog-brand"><span class="brand-mark">G</span></div><h2 id="auth-title">Jó, hogy itt vagy!</h2><p id="auth-subtitle">Lépj be, és folytasd, ahol abbahagytad.</p>
+      <div class="auth-tabs" role="tablist"><button role="tab" data-auth-tab="login">Bejelentkezés</button><button role="tab" data-auth-tab="register">Regisztráció</button></div>
+      <form id="auth-form">
+        <fieldset class="registration-role" id="registration-role" hidden><legend>Milyen profilt szeretnél?</legend><div class="role-options"><label><input type="radio" name="account-role" value="student" checked /><span class="role-icon">🎓</span><span><strong>Hallgatói</strong><small>Álláskereséshez</small></span></label><label><input type="radio" name="account-role" value="company" /><span class="role-icon">▦</span><span><strong>Céges</strong><small>Gyakornok kereséséhez</small></span></label></div></fieldset>
+        <fieldset class="role-fields" id="student-registration-fields" hidden disabled><legend>Hallgatói alapadatok</legend><div class="role-field-grid"><label for="student-name">Teljes név<input id="student-name" name="student-name" autocomplete="name" placeholder="Példa Petra" required /></label><label for="student-birth-date">Születési dátum<input id="student-birth-date" name="student-birth-date" type="date" autocomplete="bday" required /></label><label for="student-birth-place">Születési hely<input id="student-birth-place" name="student-birth-place" placeholder="pl. Győr" required /></label><label for="student-university">Egyetem<input id="student-university" name="student-university" placeholder="pl. Széchenyi István Egyetem" required /></label><label for="student-major">Szak<select id="student-major" name="student-major" required><option value="">Válassz szakot…</option></select></label><label for="student-major-custom" id="student-major-custom-wrap" hidden>Egyéb szak megnevezése<input id="student-major-custom" name="student-major-custom" placeholder="Add meg a képzés hivatalos nevét" /></label></div></fieldset>
+        <fieldset class="role-fields" id="company-registration-fields" hidden disabled><legend>Céges adatok</legend><div class="role-field-grid">
+          <label for="company-name">Hivatalos cégnév<input id="company-name" name="company-name" autocomplete="organization" placeholder="Példa Informatika Kft." required /></label>
+          <label for="company-tax-number">Adószám<input id="company-tax-number" name="company-tax-number" inputmode="numeric" pattern="[0-9]{8}-[0-9]-[0-9]{2}" placeholder="12345678-2-08" title="Formátum: 12345678-2-08" required /></label>
+          <label for="company-reg-number">Cégjegyzékszám <small>(ha cégjegyzékben szerepel)</small><input id="company-reg-number" name="company-reg-number" placeholder="08-09-123456" /></label>
+          <label for="contact-name">Kapcsolattartó neve<input id="contact-name" name="contact-name" autocomplete="name" placeholder="Példa Péter" required /></label>
+          <label for="company-phone">Kapcsolattartó telefonszáma<input id="company-phone" name="company-phone" type="tel" autocomplete="tel" placeholder="+36 30 123 4567" required /></label>
+          <label for="company-postal-code">Székhely irányítószáma<input id="company-postal-code" name="company-postal-code" inputmode="numeric" pattern="[0-9]{4}" placeholder="9021" required /></label>
+          <label for="company-city">Székhely települése<input id="company-city" name="company-city" placeholder="Győr" required /></label>
+          <label for="company-street">Közterület neve és jellege<input id="company-street" name="company-street" placeholder="Baross Gábor út" required /></label>
+          <label for="company-house-number">Házszám<input id="company-house-number" name="company-house-number" placeholder="12." required /></label>
+          <label for="company-website">Weboldal <small>(nem kötelező)</small><input id="company-website" name="company-website" type="url" autocomplete="url" placeholder="https://pelda.hu" /></label>
+        </div><p class="field-help">Az adószám, a székhely és a kapcsolattartási adatok megadása kötelező a céges fiók aktiválásához és álláshirdetés közzétételéhez.</p></fieldset>
+        <label for="email">E-mail-cím</label><input id="email" type="email" autocomplete="email" placeholder="nev@email.hu" required /><label for="password">Jelszó</label><input id="password" type="password" minlength="6" placeholder="Legalább 6 karakter" required /><button class="button button-primary submit-button" type="submit">Bejelentkezés</button><p class="form-message" id="form-message" role="status"></p>
+      </form>
+      <p class="demo-note">Prototípus: a fiók csak ebben a böngészőben lesz elérhető. A teszthallgatói belépési adatok a README-ben találhatók.</p>
+    </dialog>
+    <script src="shared-data.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>

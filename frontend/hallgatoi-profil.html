@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="hu">
+  <head><meta charset="UTF-8" /><meta name="api-base-url" content="/api" /><meta name="api-mode" content="prototype" /><meta name="viewport" content="width=device-width, initial-scale=1.0" /><title>Saját profil – GyakorStart</title><link rel="preconnect" href="https://fonts.googleapis.com" /><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin /><link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@700;800&display=swap" rel="stylesheet" /><link rel="stylesheet" href="styles.css" /></head>
+  <body class="student-body" data-profile-role="student">
+    <header class="site-header student-header"><a class="brand" href="index.html"><span class="brand-mark">G</span><span>gyakor<span>start</span></span></a><nav class="nav" aria-label="Hallgatói navigáció"><a href="jobs.html">Állások</a><a href="index.html#kinek-szol">Rólunk</a><a href="#jelentkezeseim">Jelentkezéseim</a></nav><div class="auth-actions"><a class="button button-primary" href="hallgatoi-profil.html">Saját profil</a><a class="button button-ghost" href="index.html" data-logout>Kijelentkezés</a></div></header>
+    <main class="student-page">
+      <section class="student-welcome"><div><span class="eyebrow"><i></i> Hallgatói profil</span><h1 id="student-greeting">Szia, Lili!</h1><p>Itt kezelheted a profilodat, követheted a jelentkezéseidet és megnézheted a hozzád illő lehetőségeket.</p></div><div class="profile-progress"><div class="progress-ring" id="profile-progress-ring"><strong id="profile-progress-value">40%</strong></div><div><strong>Profilod kitöltöttsége</strong><span id="profile-progress-copy">Egészítsd ki a profilodat a jobb találatokért.</span></div></div></section>
+      <section class="student-grid">
+        <article class="student-profile-card">
+          <div class="student-card-head"><h2>Saját profil</h2><button class="text-button" data-open-profile-editor>Szerkesztés</button></div>
+          <div class="student-identity"><div class="student-avatar-large" id="profile-avatar">LP</div><div class="student-identity-copy"><h3 id="profile-name">Lakatos Lili</h3><p id="profile-major">Gazdaságinformatikus hallgató</p><div class="profile-contact-grid"><div><span>E-mail-cím</span><a id="profile-email" href="mailto:">Nincs megadva</a></div><div><span>Egyetem</span><strong id="profile-university">Budapesti Gazdasági Egyetem</strong></div><div><span>Lakhely</span><strong id="profile-city">Nincs megadva</strong></div><div><span>Telefonszám</span><strong id="profile-phone">Nincs megadva</strong></div></div></div></div>
+          <section class="profile-introduction"><span>Bemutatkozás</span><p id="profile-introduction">Még nincs bemutatkozás megadva.</p></section>
+          <h3 class="subheading profile-overview-heading">Nyelvtudás és munkavállalás</h3><div class="profile-facts"><div class="profile-fact-languages"><span>Nyelvtudás</span><div class="profile-language-summary" id="profile-languages"><span class="profile-fact-empty">Nincs megadva</span></div></div><div><span>Aktuális félév</span><strong id="profile-semester">Nincs megadva</strong></div><div><span>Vállalt munkaidő</span><strong id="profile-weekly-hours">Nincs megadva</strong></div><div><span>Munkavégzés</span><strong id="profile-work-mode">Nincs megadva</strong></div></div>
+          <h3 class="subheading">Készségek</h3><div class="student-skills" id="profile-skills"><span class="empty-skill">Még nincs készség megadva</span></div>
+          <h3 class="subheading profile-extra-heading">Kiemelt tantárgyak</h3><div class="student-skills" id="profile-courses"><span class="empty-skill">Még nincs tantárgy megadva</span></div>
+          <section class="profile-projects"><h3>Projektek</h3><div class="profile-project-list" id="profile-projects"><p class="profile-empty-copy">Még nincs projekt megadva.</p></div></section>
+          <div class="profile-background-grid"><section><h3>Korábbi tanulmányok</h3><div class="profile-history-list" id="profile-education"><p class="profile-empty-copy">Még nincs korábbi tanulmány megadva.</p></div></section><section><h3>Szakmai tapasztalat</h3><div class="profile-history-list" id="profile-professional-experience"><p class="profile-empty-copy">Még nincs szakmai tapasztalat megadva.</p></div></section><section><h3>Egyéb munkatapasztalat</h3><div class="profile-history-list" id="profile-other-experience"><p class="profile-empty-copy">Még nincs egyéb tapasztalat megadva.</p></div></section></div>
+          <section class="profile-additional-data"><h3>További adatok</h3><div class="profile-additional-grid"><div><span>Jogosítvány</span><strong id="profile-driving-license">Nincs megadva</strong></div><div><span>Legkorábbi munkakezdés</span><strong id="profile-availability">Nincs megadva</strong></div></div><div class="profile-external-links" id="profile-external-links"></div><div class="student-skills profile-certifications" id="profile-certifications"><span class="empty-skill">Még nincs tanúsítvány megadva</span></div></section>
+        </article>
+        <article class="profile-tip-card"><span class="tip-icon">✶</span><h2>Erősebb profil, jobb egyezések</h2><p>A cégek a szak, a félév, a nyelvtudás és a készségek alapján kereshetnek gyakornokokat.</p><ul><li class="done">✓ Alapadatok kitöltve</li><li id="completion-contact">○ Elérhetőségek megadása</li><li id="completion-study">○ Félév megadása</li><li id="completion-language">○ Nyelvtudás megadása</li><li id="completion-work">○ Munkaidő megadása</li><li id="completion-skills">○ Készségek hozzáadása</li></ul><button class="button button-primary" data-open-profile-editor>Profil kiegészítése</button></article>
+      </section>
+      <section class="student-section" id="jelentkezeseim"><div class="student-section-head"><div><span class="eyebrow"><i></i> Kiválasztási folyamat</span><h2>Jelentkezéseim</h2></div><a href="jobs.html">Új állás keresése →</a></div><div class="application-list" id="student-application-list" aria-live="polite"></div></section>
+      <section class="student-section"><div class="student-section-head"><div><span class="eyebrow"><i></i> Állásajánlatok</span><h2>Kiemelt állások</h2></div><a href="jobs.html">Minden állás →</a></div><p class="section-help">Nézd meg a számodra érdekes pozíciókat, és a részleteknél ellenőrizd a feltételeket.</p><div class="recommended-grid"><a href="job.html?id=penzugy"><h3>Pénzügyi asszisztens gyakornok</h3><p>Danube Finance Kft. · Budapest</p><strong>Részletek →</strong></a><a href="job.html?id=frontend"><h3>Frontend fejlesztő gyakornok</h3><p>WebOrbit Studio · Budapest</p><strong>Részletek →</strong></a></div></section>
+    </main>
+    <dialog class="student-application-dialog" id="student-application-dialog" aria-labelledby="student-application-dialog-title">
+      <div class="student-application-dialog-head">
+        <span class="modal-kicker">Jelentkezés részletei</span>
+        <button class="dialog-close" id="student-application-dialog-close" type="button" aria-label="Bezárás">×</button>
+      </div>
+      <div class="student-application-dialog-identity">
+        <div>
+          <h2 id="student-application-dialog-title">Rendszergazda gyakornok</h2>
+          <p id="student-application-dialog-company">Rába IT Services Kft. · Győr</p>
+          <span class="student-application-dialog-applied" id="student-application-dialog-applied"></span>
+        </div>
+        <span class="application-status new" id="student-application-dialog-status">Elbírálás alatt</span>
+      </div>
+      <p class="student-application-dialog-status-copy" id="student-application-dialog-status-copy"></p>
+      <section class="student-application-dialog-timeline" aria-labelledby="student-application-dialog-timeline-title">
+        <h3 id="student-application-dialog-timeline-title">Jelentkezésed idővonala</h3>
+        <ol class="application-timeline" id="student-application-dialog-timeline"></ol>
+      </section>
+      <div class="student-application-dialog-actions">
+        <a class="button button-primary" id="student-application-job-link" href="job.html" target="_blank" rel="noopener noreferrer">Eredeti hirdetés megtekintése ↗</a>
+        <button class="button button-light" id="student-application-dialog-close-secondary" type="button">Bezárás</button>
+      </div>
+    </dialog>
+    <dialog class="profile-dialog" id="profile-dialog" aria-labelledby="profile-dialog-title">
+      <button class="dialog-close" id="profile-dialog-close" aria-label="Bezárás">×</button>
+      <span class="modal-kicker">Hallgatói profil</span>
+      <h2 id="profile-dialog-title">Profil kiegészítése</h2>
+      <p>Add meg, milyen lehetőségeket keresel. Ezek alapján pontosabb találatokat és céges egyezéseket kaphatsz.</p>
+      <form id="profile-completion-form">
+        <section class="profile-photo-editor">
+          <div class="profile-photo-preview" id="profile-photo-preview"><span id="profile-photo-initials">LP</span></div>
+          <div><strong>Profilkép</strong><p>JPG, PNG vagy WebP képet válassz. A képet az oldal automatikusan lekicsinyíti.</p><div class="photo-actions"><label class="button button-light photo-upload-button" for="profile-photo-input">Kép kiválasztása<input id="profile-photo-input" type="file" accept="image/png,image/jpeg,image/webp" hidden /></label><button class="text-button" id="remove-profile-photo" type="button">Kép törlése</button></div></div>
+        </section>
+        <section class="profile-editor-card" aria-labelledby="contact-editor-title"><div class="profile-editor-heading"><div><h3 id="contact-editor-title">Kapcsolati adatok és bemutatkozás</h3><p>A telefonszám és a lakhely a profilod felső részén jelenik meg. Az e-mail-címedet a regisztrációkor megadott fiókadatból vesszük át.</p></div></div><div class="additional-editor-grid"><label for="edit-city">Lakhely<input id="edit-city" placeholder="pl. Győr" /></label><label for="edit-phone">Telefonszám<input id="edit-phone" type="tel" autocomplete="tel" placeholder="pl. +36 30 123 4567" /></label></div><label for="edit-introduction">Rövid bemutatkozás<textarea id="edit-introduction" maxlength="500" rows="4" placeholder="Írj néhány mondatot magadról, az érdeklődésedről és a céljaidról."></textarea></label><p class="field-help">Legfeljebb 500 karakter. Mutasd be röviden, milyen területek érdekelnek és milyen gyakornoki munkát keresel.</p></section>
+        <div class="profile-form-grid">
+          <label for="edit-major">Jelenlegi szak<select id="edit-major" required><option value="">Válassz szakot…</option></select></label>
+          <label for="edit-major-custom" id="edit-major-custom-wrap" hidden>Egyéb szak megnevezése<input id="edit-major-custom" placeholder="Add meg a képzés hivatalos nevét" /></label>
+          <label for="edit-semester">Aktuális félév<select id="edit-semester" required><option value="">Válassz félévet…</option></select></label>
+          <fieldset class="weekly-hours-field"><legend>Heti vállalt munkaidő</legend><div class="hours-range"><label for="edit-weekly-hours-min"><span>Minimum óraszám</span><input id="edit-weekly-hours-min" aria-label="Minimum heti óraszám" type="number" min="5" max="40" step="1" placeholder="8" required /></label><span class="hours-separator" aria-hidden="true">–</span><label for="edit-weekly-hours-max"><span>Maximum óraszám</span><input id="edit-weekly-hours-max" aria-label="Maximum heti óraszám" type="number" min="5" max="40" step="1" placeholder="24" required /></label><span>óra</span></div><small>Heti 5–40 óra közötti értéket adj meg.</small></fieldset>
+          <label for="edit-work-mode">Munkavégzés módja<select id="edit-work-mode" required><option value="">Válassz…</option><option>Irodai</option><option>Hibrid</option><option>Távoli</option><option>Mindegy</option></select></label>
+        </div>
+        <section class="language-editor" aria-labelledby="language-editor-title">
+          <div class="language-editor-heading"><div><h3 id="language-editor-title">Nyelvtudás és nyelvvizsga</h3><p>Nyelvenként add meg a beszédkészségedet. A nyelvvizsga szintjét ettől függetlenül rögzítheted.</p></div></div>
+          <div class="language-list" id="student-language-list" aria-live="polite"></div>
+          <div class="language-add-row" id="language-add-row">
+            <label for="language-to-add">Nyelv hozzáadása<select id="language-to-add"><option value="">Válassz nyelvet…</option></select></label>
+            <button class="button button-light" id="add-language" type="button">+ Nyelvtudás hozzáadása</button>
+          </div>
+          <p class="field-help">Az angol, német és magyar mellett további gyakori nyelveket is választhatsz a közös listából.</p>
+          <p class="language-empty" id="language-empty">Még nem adtál meg nyelvtudást. A nyelvtudás megadása nem kötelező.</p>
+        </section>
+        <section class="profile-editor-card" aria-labelledby="skills-editor-title"><div class="profile-editor-heading"><div><h3 id="skills-editor-title">Készségek</h3><p>Add meg a készségeidet és azt is, mennyire magabiztosan használod őket.</p></div><button class="button button-light" id="add-skill" type="button">+ Készség</button></div><div class="repeatable-list" id="skill-editor-list"></div></section>
+        <section class="profile-editor-card" aria-labelledby="courses-editor-title"><div class="profile-editor-heading"><div><h3 id="courses-editor-title">Kiemelt tantárgyak</h3><p>Azokat a tantárgyakat emeld ki, amelyek hasznosak lehetnek a keresett gyakornoki munkához.</p></div></div><label for="edit-relevant-courses">Releváns tantárgyak<input id="edit-relevant-courses" placeholder="pl. Adatbázisok, Programozás, Vállalati pénzügyek" /></label><p class="field-help">A tantárgyakat vesszővel válaszd el.</p></section>
+        <section class="profile-editor-card" aria-labelledby="projects-editor-title"><div class="profile-editor-heading"><div><h3 id="projects-editor-title">Projektek</h3><p>Egyetemi és saját projekteket is hozzáadhatsz.</p></div><button class="button button-light" id="add-project" type="button">+ Projekt</button></div><div class="repeatable-list" id="project-editor-list"></div></section>
+        <section class="profile-editor-card" aria-labelledby="education-editor-title"><div class="profile-editor-heading"><div><h3 id="education-editor-title">Korábbi tanulmányok</h3><p>Középiskolát, korábbi képzést vagy más befejezett tanulmányt is megadhatsz.</p></div><button class="button button-light" id="add-education" type="button">+ Tanulmány</button></div><div class="repeatable-list" id="education-editor-list"></div></section>
+        <section class="profile-editor-card" aria-labelledby="professional-experience-editor-title"><div class="profile-editor-heading"><div><h3 id="professional-experience-editor-title">Szakmai tapasztalat</h3><p>Gyakornoki munkát vagy a tanulmányaidhoz kapcsolódó korábbi pozíciót tüntess fel.</p></div><button class="button button-light" id="add-professional-experience" type="button">+ Szakmai tapasztalat</button></div><div class="repeatable-list" id="professional-experience-editor-list"></div></section>
+        <section class="profile-editor-card" aria-labelledby="other-experience-editor-title"><div class="profile-editor-heading"><div><h3 id="other-experience-editor-title">Egyéb munkatapasztalat</h3><p>Diákmunka, önkéntes munka vagy más korábbi munkavégzés is megadható.</p></div><button class="button button-light" id="add-other-experience" type="button">+ Egyéb tapasztalat</button></div><div class="repeatable-list" id="other-experience-editor-list"></div></section>
+        <section class="profile-editor-card" aria-labelledby="additional-editor-title"><div class="profile-editor-heading"><div><h3 id="additional-editor-title">További adatok</h3><p>Ezek az adatok opcionálisak, de bizonyos állásoknál segíthetik a kiválasztást.</p></div></div><div class="additional-editor-grid"><label for="edit-driving-license">Jogosítvány<select id="edit-driving-license"><option value="">Nincs megadva</option><option>Nincs jogosítványom</option><option>AM kategória</option><option>A kategória</option><option>B kategória</option><option>C kategória</option><option>Egyéb kategória</option></select></label><label for="edit-availability-date">Legkorábbi munkakezdés<input id="edit-availability-date" type="date" /></label><label for="edit-linkedin-url">LinkedIn profil<input id="edit-linkedin-url" type="url" placeholder="https://linkedin.com/in/..." /></label><label for="edit-portfolio-url">GitHub vagy portfólió<input id="edit-portfolio-url" type="url" placeholder="https://github.com/..." /></label></div><label for="edit-certifications">Tanúsítványok és képesítések<input id="edit-certifications" placeholder="pl. ICDL, AWS Cloud Practitioner" /></label><p class="field-help">A tanúsítványokat vesszővel válaszd el.</p></section>
+        <button class="button button-primary submit-button" type="submit">Profil mentése →</button>
+        <p class="form-message" id="profile-save-message" role="status"></p>
+      </form>
+    </dialog>
+    <footer><a class="brand brand-footer" href="index.html"><span class="brand-mark">G</span><span>gyakor<span>start</span></span></a><div class="footer-links"><a href="jobs.html">Állások</a><a href="ceges-profil.html">Céges profil</a></div><p>© 2026 GyakorStart</p></footer>
+    <script src="shared-data.js"></script>
+    <script src="student-applications.js"></script>
+    <script src="profile-session.js"></script>
+  </body>
+</html>
