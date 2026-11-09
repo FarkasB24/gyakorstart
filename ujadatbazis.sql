@@ -1,6 +1,6 @@
 USE [master]
 GO
-/****** Object:  Database [gyakorstartDBuj]    Script Date: 2026. 11. 07. 12:52:45 ******/
+/****** Object:  Database [gyakorstartDBuj]    Script Date: 2026. 11. 09. 1:25:42 ******/
 CREATE DATABASE [gyakorstartDBuj]
  CONTAINMENT = NONE
  ON  PRIMARY 
@@ -82,7 +82,7 @@ ALTER DATABASE [gyakorstartDBuj] SET QUERY_STORE (OPERATION_MODE = READ_WRITE, C
 GO
 USE [gyakorstartDBuj]
 GO
-/****** Object:  Table [dbo].[allas_elfogadott_szakok]    Script Date: 2026. 11. 07. 12:52:45 ******/
+/****** Object:  Table [dbo].[allas_elfogadott_szakok]    Script Date: 2026. 11. 09. 1:25:43 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -91,14 +91,14 @@ CREATE TABLE [dbo].[allas_elfogadott_szakok](
 	[id] [int] IDENTITY(1,1) NOT NULL,
 	[allas_id] [varchar](50) NOT NULL,
 	[szak_kod] [varchar](50) NULL,
-	[szak_nev] [varchar](100) NOT NULL,
-PRIMARY KEY CLUSTERED 
+	[szak_nev] [nvarchar](100) NOT NULL,
+ CONSTRAINT [PK__allas_el__3213E83FB16D9A6B] PRIMARY KEY CLUSTERED 
 (
 	[id] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[allas_hirdetesek]    Script Date: 2026. 11. 07. 12:52:46 ******/
+/****** Object:  Table [dbo].[allas_hirdetesek]    Script Date: 2026. 11. 09. 1:25:43 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -106,21 +106,21 @@ GO
 CREATE TABLE [dbo].[allas_hirdetesek](
 	[id] [varchar](50) NOT NULL,
 	[ceg_felhasznalo_id] [int] NULL,
-	[pozicio_nev] [varchar](100) NOT NULL,
-	[ceg_nev] [varchar](100) NOT NULL,
-	[ceg_bemutatkozas] [varchar](2000) NULL,
-	[helyszin] [varchar](100) NOT NULL,
-	[munkavegzes_mod] [varchar](20) NOT NULL,
+	[pozicio_nev] [nvarchar](100) NOT NULL,
+	[ceg_nev] [nvarchar](100) NOT NULL,
+	[ceg_bemutatkozas] [nvarchar](2000) NULL,
+	[helyszin] [nvarchar](100) NOT NULL,
+	[munkavegzes_mod] [nvarchar](20) NOT NULL,
 	[minimum_felev] [varchar](5) NULL,
 	[heti_ora_min] [tinyint] NULL,
 	[heti_ora_max] [tinyint] NULL,
 	[brutto_oraber] [varchar](50) NULL,
-	[feladatok] [varchar](2000) NULL,
-	[szakmai_elvarasok] [varchar](2000) NULL,
+	[feladatok] [nvarchar](2000) NULL,
+	[szakmai_elvarasok] [nvarchar](2000) NULL,
 	[jelentkezesi_hatarido] [date] NULL,
-	[statusz] [varchar](20) NULL,
-	[szakma_terulet] [varchar](30) NULL,
-	[nyelv_kapcsolat] [varchar](10) NULL,
+	[statusz] [nvarchar](20) NULL,
+	[szakma_terulet] [nvarchar](30) NULL,
+	[nyelv_kapcsolat] [nvarchar](10) NULL,
 	[letrehozva] [datetime2](0) NULL,
  CONSTRAINT [PK__allas_hi__3213E83F88572FE9] PRIMARY KEY CLUSTERED 
 (
@@ -128,7 +128,7 @@ CREATE TABLE [dbo].[allas_hirdetesek](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[allas_nyelvi_elvarasok]    Script Date: 2026. 11. 07. 12:52:46 ******/
+/****** Object:  Table [dbo].[allas_nyelvi_elvarasok]    Script Date: 2026. 11. 09. 1:25:43 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -137,17 +137,17 @@ CREATE TABLE [dbo].[allas_nyelvi_elvarasok](
 	[id] [int] IDENTITY(1,1) NOT NULL,
 	[allas_id] [varchar](50) NOT NULL,
 	[nyelv_kod] [varchar](30) NOT NULL,
-	[elvart_szint] [varchar](30) NOT NULL,
-	[tipus] [varchar](20) NULL,
+	[elvart_szint] [nvarchar](30) NOT NULL,
+	[tipus] [nvarchar](20) NULL,
 	[szukseges_nyelvvizsga] [bit] NULL,
-	[nyelvvizsga_szint] [varchar](5) NULL,
-PRIMARY KEY CLUSTERED 
+	[nyelvvizsga_szint] [nvarchar](5) NULL,
+ CONSTRAINT [PK__allas_ny__3213E83FA3F19BCC] PRIMARY KEY CLUSTERED 
 (
 	[id] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[ceges_profilok]    Script Date: 2026. 11. 07. 12:52:46 ******/
+/****** Object:  Table [dbo].[ceges_profilok]    Script Date: 2026. 11. 09. 1:25:43 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -155,44 +155,44 @@ GO
 CREATE TABLE [dbo].[ceges_profilok](
 	[id] [int] IDENTITY(1,1) NOT NULL,
 	[felhasznalo_id] [int] NOT NULL,
-	[ceg_nev] [varchar](180) NOT NULL,
+	[ceg_nev] [nvarchar](180) NOT NULL,
 	[adoszam] [varchar](20) NOT NULL,
 	[cegjegyzekszam] [varchar](30) NULL,
-	[kapcsolattarto_neve] [varchar](100) NOT NULL,
+	[kapcsolattarto_neve] [nvarchar](100) NOT NULL,
 	[kapcsolattarto_telefon] [varchar](25) NOT NULL,
 	[szekhely_iranyitoszam] [varchar](4) NOT NULL,
-	[szekhely_telepules] [varchar](50) NOT NULL,
-	[szekhely_kozterulet] [varchar](100) NOT NULL,
+	[szekhely_telepules] [nvarchar](50) NOT NULL,
+	[szekhely_kozterulet] [nvarchar](100) NOT NULL,
 	[szekhely_hazszam] [varchar](20) NOT NULL,
 	[weboldal] [varchar](200) NULL,
-PRIMARY KEY CLUSTERED 
+ CONSTRAINT [PK__ceges_pr__3213E83F2A08BEAC] PRIMARY KEY CLUSTERED 
 (
 	[id] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[felhasznalok]    Script Date: 2026. 11. 07. 12:52:46 ******/
+/****** Object:  Table [dbo].[felhasznalok]    Script Date: 2026. 11. 09. 1:25:43 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
 GO
 CREATE TABLE [dbo].[felhasznalok](
 	[id] [int] IDENTITY(1,1) NOT NULL,
-	[email] [varchar](254) NOT NULL,
+	[email] [nvarchar](254) NOT NULL,
 	[jelszo_hash] [varchar](64) NOT NULL,
-	[szerepkor] [varchar](15) NOT NULL,
+	[szerepkor] [nvarchar](15) NOT NULL,
 	[letrehozva] [datetime2](0) NULL,
-PRIMARY KEY CLUSTERED 
+ CONSTRAINT [PK__felhaszn__3213E83F532D8526] PRIMARY KEY CLUSTERED 
 (
 	[id] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY],
-UNIQUE NONCLUSTERED 
+ CONSTRAINT [UQ__felhaszn__AB6E616491145CE2] UNIQUE NONCLUSTERED 
 (
 	[email] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[hallgato_keszsegek]    Script Date: 2026. 11. 07. 12:52:46 ******/
+/****** Object:  Table [dbo].[hallgato_keszsegek]    Script Date: 2026. 11. 09. 1:25:43 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -200,15 +200,15 @@ GO
 CREATE TABLE [dbo].[hallgato_keszsegek](
 	[id] [int] IDENTITY(1,1) NOT NULL,
 	[hallgato_id] [int] NOT NULL,
-	[nev] [varchar](50) NOT NULL,
-	[szint] [varchar](30) NULL,
-PRIMARY KEY CLUSTERED 
+	[nev] [nvarchar](50) NOT NULL,
+	[szint] [nvarchar](30) NULL,
+ CONSTRAINT [PK__hallgato__3213E83F37312506] PRIMARY KEY CLUSTERED 
 (
 	[id] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[hallgato_nyelvek]    Script Date: 2026. 11. 07. 12:52:46 ******/
+/****** Object:  Table [dbo].[hallgato_nyelvek]    Script Date: 2026. 11. 09. 1:25:43 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -217,17 +217,17 @@ CREATE TABLE [dbo].[hallgato_nyelvek](
 	[id] [int] IDENTITY(1,1) NOT NULL,
 	[hallgato_id] [int] NOT NULL,
 	[nyelv_kod] [varchar](30) NOT NULL,
-	[nyelv_nev] [varchar](50) NOT NULL,
-	[beszedkeszseg_szint] [varchar](30) NULL,
+	[nyelv_nev] [nvarchar](50) NOT NULL,
+	[beszedkeszseg_szint] [nvarchar](30) NULL,
 	[van_nyelvvizsga] [bit] NULL,
-	[nyelvvizsga_szint] [varchar](5) NULL,
-PRIMARY KEY CLUSTERED 
+	[nyelvvizsga_szint] [nvarchar](5) NULL,
+ CONSTRAINT [PK__hallgato__3213E83F9A10E0CC] PRIMARY KEY CLUSTERED 
 (
 	[id] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[hallgato_projektek]    Script Date: 2026. 11. 07. 12:52:46 ******/
+/****** Object:  Table [dbo].[hallgato_projektek]    Script Date: 2026. 11. 09. 1:25:43 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -235,32 +235,17 @@ GO
 CREATE TABLE [dbo].[hallgato_projektek](
 	[id] [int] IDENTITY(1,1) NOT NULL,
 	[hallgato_id] [int] NOT NULL,
-	[projekt_nev] [varchar](100) NULL,
-	[technologiak] [varchar](150) NULL,
-	[leiras] [varchar](500) NULL,
-	[projekt_url] [varchar](200) NULL,
-PRIMARY KEY CLUSTERED 
+	[projekt_nev] [nvarchar](100) NULL,
+	[technologiak] [nvarchar](150) NULL,
+	[leiras] [nvarchar](500) NULL,
+	[projekt_url] [nvarchar](200) NULL,
+ CONSTRAINT [PK__hallgato__3213E83FC2A6461F] PRIMARY KEY CLUSTERED 
 (
 	[id] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[hallgato_tantargyak]    Script Date: 2026. 11. 07. 12:52:46 ******/
-SET ANSI_NULLS ON
-GO
-SET QUOTED_IDENTIFIER ON
-GO
-CREATE TABLE [dbo].[hallgato_tantargyak](
-	[id] [int] IDENTITY(1,1) NOT NULL,
-	[hallgato_id] [int] NOT NULL,
-	[tantargy_nev] [varchar](80) NOT NULL,
-PRIMARY KEY CLUSTERED 
-(
-	[id] ASC
-)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
-) ON [PRIMARY]
-GO
-/****** Object:  Table [dbo].[hallgato_tanulmanyok]    Script Date: 2026. 11. 07. 12:52:46 ******/
+/****** Object:  Table [dbo].[hallgato_tanulmanyok]    Script Date: 2026. 11. 09. 1:25:43 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -268,16 +253,16 @@ GO
 CREATE TABLE [dbo].[hallgato_tanulmanyok](
 	[id] [int] IDENTITY(1,1) NOT NULL,
 	[hallgato_id] [int] NOT NULL,
-	[intezmeny] [varchar](100) NULL,
-	[kepzes] [varchar](100) NULL,
+	[intezmeny] [nvarchar](100) NULL,
+	[kepzes] [nvarchar](100) NULL,
 	[idoszak] [varchar](30) NULL,
-PRIMARY KEY CLUSTERED 
+ CONSTRAINT [PK__hallgato__3213E83F5A2154B3] PRIMARY KEY CLUSTERED 
 (
 	[id] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[hallgato_tapasztalatok]    Script Date: 2026. 11. 07. 12:52:46 ******/
+/****** Object:  Table [dbo].[hallgato_tapasztalatok]    Script Date: 2026. 11. 09. 1:25:43 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -285,18 +270,18 @@ GO
 CREATE TABLE [dbo].[hallgato_tapasztalatok](
 	[id] [int] IDENTITY(1,1) NOT NULL,
 	[hallgato_id] [int] NOT NULL,
-	[tipus] [varchar](20) NULL,
-	[ceg] [varchar](100) NULL,
-	[pozicio] [varchar](100) NULL,
+	[tipus] [nvarchar](20) NULL,
+	[ceg] [nvarchar](100) NULL,
+	[pozicio] [nvarchar](100) NULL,
 	[idoszak] [varchar](30) NULL,
-	[leiras] [varchar](500) NULL,
-PRIMARY KEY CLUSTERED 
+	[leiras] [nvarchar](500) NULL,
+ CONSTRAINT [PK__hallgato__3213E83F6F381082] PRIMARY KEY CLUSTERED 
 (
 	[id] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[hallgatoi_profilok]    Script Date: 2026. 11. 07. 12:52:46 ******/
+/****** Object:  Table [dbo].[hallgatoi_profilok]    Script Date: 2026. 11. 09. 1:25:43 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -304,32 +289,33 @@ GO
 CREATE TABLE [dbo].[hallgatoi_profilok](
 	[id] [int] IDENTITY(1,1) NOT NULL,
 	[felhasznalo_id] [int] NOT NULL,
-	[teljes_nev] [varchar](100) NOT NULL,
+	[teljes_nev] [nvarchar](100) NOT NULL,
 	[szuletesi_datum] [date] NULL,
-	[szuletesi_hely] [varchar](50) NULL,
-	[egyetem] [varchar](100) NULL,
-	[szak] [varchar](100) NULL,
+	[szuletesi_hely] [nvarchar](50) NULL,
+	[egyetem] [nvarchar](100) NULL,
+	[szak] [nvarchar](100) NULL,
 	[szak_kod] [varchar](50) NULL,
 	[aktualis_felev] [varchar](5) NULL,
-	[telepules] [varchar](50) NULL,
+	[telepules] [nvarchar](50) NULL,
 	[telefonszam] [varchar](25) NULL,
-	[bemutatkozas] [varchar](500) NULL,
+	[bemutatkozas] [nvarchar](500) NULL,
 	[heti_oraszam_min] [tinyint] NULL,
 	[heti_oraszam_max] [tinyint] NULL,
-	[munkavegzes_mod] [varchar](20) NULL,
-	[jogositvany] [varchar](30) NULL,
+	[munkavegzes_mod] [nvarchar](50) NULL,
+	[jogositvany] [nvarchar](50) NULL,
 	[legkorabbi_munkakezdes] [date] NULL,
 	[linkedin_url] [varchar](200) NULL,
 	[portfolio_url] [varchar](200) NULL,
 	[profil_kep] [varchar](max) NULL,
-	[tanusitvanyok] [varchar](300) NULL,
+	[tanusitvanyok] [nvarchar](300) NULL,
+	[tantargyak] [nvarchar](300) NULL,
  CONSTRAINT [PK__hallgato__3213E83F5E6F39D6] PRIMARY KEY CLUSTERED 
 (
 	[id] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[jelentkezesek]    Script Date: 2026. 11. 07. 12:52:46 ******/
+/****** Object:  Table [dbo].[jelentkezesek]    Script Date: 2026. 11. 09. 1:25:43 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -338,11 +324,11 @@ CREATE TABLE [dbo].[jelentkezesek](
 	[id] [varchar](80) NOT NULL,
 	[allas_id] [varchar](50) NOT NULL,
 	[hallgato_id] [int] NOT NULL,
-	[statusz] [varchar](20) NULL,
-	[bemutatkozo_uzenet] [varchar](1000) NULL,
+	[statusz] [nvarchar](20) NULL,
+	[bemutatkozo_uzenet] [nvarchar](1000) NULL,
 	[jelentkezes_ideje] [datetime2](0) NULL,
 	[idovonal_esemenyek] [varchar](max) NULL,
-PRIMARY KEY CLUSTERED 
+ CONSTRAINT [PK__jelentke__3213E83F67BC9EB5] PRIMARY KEY CLUSTERED 
 (
 	[id] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
@@ -354,17 +340,17 @@ ALTER TABLE [dbo].[allas_hirdetesek] ADD  CONSTRAINT [DF__allas_hir__nyelv__5DCA
 GO
 ALTER TABLE [dbo].[allas_hirdetesek] ADD  CONSTRAINT [DF__allas_hir__letre__5EBF139D]  DEFAULT (getdate()) FOR [letrehozva]
 GO
-ALTER TABLE [dbo].[allas_nyelvi_elvarasok] ADD  DEFAULT ('required') FOR [tipus]
+ALTER TABLE [dbo].[allas_nyelvi_elvarasok] ADD  CONSTRAINT [DF__allas_nye__tipus__6C190EBB]  DEFAULT ('required') FOR [tipus]
 GO
-ALTER TABLE [dbo].[allas_nyelvi_elvarasok] ADD  DEFAULT ((0)) FOR [szukseges_nyelvvizsga]
+ALTER TABLE [dbo].[allas_nyelvi_elvarasok] ADD  CONSTRAINT [DF__allas_nye__szuks__6D0D32F4]  DEFAULT ((0)) FOR [szukseges_nyelvvizsga]
 GO
-ALTER TABLE [dbo].[felhasznalok] ADD  DEFAULT (getdate()) FOR [letrehozva]
+ALTER TABLE [dbo].[felhasznalok] ADD  CONSTRAINT [DF__felhaszna__letre__38996AB5]  DEFAULT (getdate()) FOR [letrehozva]
 GO
-ALTER TABLE [dbo].[hallgato_nyelvek] ADD  DEFAULT ((0)) FOR [van_nyelvvizsga]
+ALTER TABLE [dbo].[hallgato_nyelvek] ADD  CONSTRAINT [DF__hallgato___van_n__45F365D3]  DEFAULT ((0)) FOR [van_nyelvvizsga]
 GO
-ALTER TABLE [dbo].[jelentkezesek] ADD  DEFAULT ('new') FOR [statusz]
+ALTER TABLE [dbo].[jelentkezesek] ADD  CONSTRAINT [DF__jelentkez__statu__72C60C4A]  DEFAULT ('new') FOR [statusz]
 GO
-ALTER TABLE [dbo].[jelentkezesek] ADD  DEFAULT (getdate()) FOR [jelentkezes_ideje]
+ALTER TABLE [dbo].[jelentkezesek] ADD  CONSTRAINT [DF__jelentkez__jelen__73BA3083]  DEFAULT (getdate()) FOR [jelentkezes_ideje]
 GO
 ALTER TABLE [dbo].[allas_elfogadott_szakok]  WITH CHECK ADD  CONSTRAINT [FK_Szak_Allas] FOREIGN KEY([allas_id])
 REFERENCES [dbo].[allas_hirdetesek] ([id])
@@ -407,12 +393,6 @@ REFERENCES [dbo].[hallgatoi_profilok] ([id])
 ON DELETE CASCADE
 GO
 ALTER TABLE [dbo].[hallgato_projektek] CHECK CONSTRAINT [FK_Projekt_Hallgato]
-GO
-ALTER TABLE [dbo].[hallgato_tantargyak]  WITH CHECK ADD  CONSTRAINT [FK_Tantargy_Hallgato] FOREIGN KEY([hallgato_id])
-REFERENCES [dbo].[hallgatoi_profilok] ([id])
-ON DELETE CASCADE
-GO
-ALTER TABLE [dbo].[hallgato_tantargyak] CHECK CONSTRAINT [FK_Tantargy_Hallgato]
 GO
 ALTER TABLE [dbo].[hallgato_tanulmanyok]  WITH CHECK ADD  CONSTRAINT [FK_Tanulmany_Hallgato] FOREIGN KEY([hallgato_id])
 REFERENCES [dbo].[hallgatoi_profilok] ([id])
